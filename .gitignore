@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+hist_data/*
+venv/*
+logs/*
+sandbox.py
