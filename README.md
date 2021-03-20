@@ -1,5 +1,8 @@
 # Bybit Backtester
 
+![image](https://user-images.githubusercontent.com/48595067/111877328-bfc10900-899a-11eb-9795-4b4f6f5bc069.png)
+
+
 
 Running using docker commands
 ```
