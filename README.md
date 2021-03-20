@@ -2,9 +2,12 @@
 
 ![image](https://user-images.githubusercontent.com/48595067/111877328-bfc10900-899a-11eb-9795-4b4f6f5bc069.png)
 
+The strategy file is src/engine/strategy.py (more instructions when I have time)
+If you think the code is weird, that's because this module was torn from the main program, which includes the auto-trader. Not planning to release that yet.
 
+After running, the result is printed to stadard output, and a basic chart.png is generated. Not the best UX, but we're trying to make money not pretty things.
 
-Running using docker commands
+Running with Docker
 ```
 git clone https://github.com/culda/bybit-backtester.git
 cd bybit-backtester
