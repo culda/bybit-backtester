@@ -7,6 +7,8 @@ If you think the code is weird, that's because this module was torn from the mai
 
 After running, the result is printed to stadard output, and a basic chart.png is generated. Not the best UX, but we're trying to make money not pretty things.
 
+The code will download historical data and place it in hist_data. Subsequent runs for the same period will yield faster. Using Docker for this is not advisable because the pricing will be downloaded every time.
+
 Running with Docker
 ```
 git clone https://github.com/culda/bybit-backtester.git
