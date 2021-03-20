@@ -1,31 +1,49 @@
-# bybit-backtester
-Tools for backtesting crypto trading strategies
+# Bybit Backtester
 
 
-** This is a framework for creating automated trading bots for Bybit **
-
-Instructions coming soon...
-
+Running using docker commands
 ```
-sudo apt-get update
-sudo apt-get -y upgrade
+git clone https://github.com/culda/bybit-backtester.git
+cd bybit-backtester
+
+docker build -f dockerfile -t backtester:1.0 .
+docker run -d backtester:1.0
 ```
+
+Non-docker
+
 ```
 >>> python3 -V
-3.X
+3.7+
 ```
+
 ```
-sudo apt-get install -y python3-pip
-sudo apt-get install build-essential libssl-dev libffi-dev python3-dev python3-venv
-```
-```
+git clone https://github.com/culda/bybit-backtester.git
 cd bybit-backtester
 python3 -m venv venv
 source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
-chmod +x run.sh
-./run.sh
+mkdir -p logs trades hist_data
 ```
 
+You need to create a .env file and fill in your API keys
+```
+SYMBOL=BTCUSD
+BYBIT_PUBLIC_TRADE=
+BYBIT_SECRET_TRADE=
+
+```
+
+Non-docker command
+
+```
+python main.py backtester 2021-03-05 2021-03-10
+```
+
+
+Running tests (if you're into unit tests)
+```
+python -m unittest discover -s src/tests -p '*_test.py'
+```

@@ -1,4 +1,3 @@
-from constants import *
 import json
 import logging
 import dateparser
@@ -6,6 +5,8 @@ import pytz
 from decimal import Decimal
 from datetime import datetime
 from pandas import Series
+
+from src.utils.constants import *
 
 def get_logger(logger, fname, level = logging.INFO):
     fh = logging.FileHandler(fname)
@@ -83,6 +84,8 @@ def interval_to_milliseconds(interval):
             pass
     return ms
 
+def timestamp_to_date(timestamp):    
+    return datetime.fromtimestamp(timestamp)
 
 def verify_series(series: Series) -> Series:
     """If a Pandas Series return it."""
@@ -97,6 +100,14 @@ def start_of_hour(ts):
     dt = datetime.fromtimestamp(int(ts))
     return dt.minute == 0
 
+def start_of_hour4(ts):
+    dt = datetime.fromtimestamp(int(ts))
+    return dt.minute == 0 and dt.hour %4 == 0
+
+def start_of_min15(ts):
+    dt = datetime.fromtimestamp(int(ts))
+    return dt.minute %15 == 0
+
 def start_of_day(ts):
     dt = datetime.fromtimestamp(int(ts))
     return dt.hour == 0 and dt.minute == 0
@@ -109,3 +120,16 @@ def sameday(first, second):
 
 def percent( f, t ):
     return ((t - f) / f) * 100
+
+def interval_bybit_notation(interval):
+    return {
+        '1m': 1,
+        '3m': 3,
+        '5m': 5,
+        '15m': 15,
+        '30m': 30,
+        '1h' : 60,
+        '2h': 120,
+        '4h': 240,
+        'D' : 'D'
+    }[interval]
